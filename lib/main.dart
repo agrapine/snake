@@ -18,7 +18,7 @@ void main() {
 class SnakeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Snake',
       theme: ThemeData(primarySwatch: Colors.blue, brightness: Brightness.dark),
       home: SceneWidget(),
     );
@@ -28,6 +28,7 @@ class SnakeApp extends StatelessWidget {
 class SceneWidget extends StatelessWidget {
   SceneWidget();
   Widget build(BuildContext context) {
+
     final scene = Scope.get<Scene>(context);
     final size = MediaQuery.of(context).size;
     final square = (size.width < size.height ? size.width : size.height) - 16.0;
@@ -39,11 +40,13 @@ class SceneWidget extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(child: Background()),
+
           Positioned.fromRect(
               rect: rect,
               child: FluidBuilder<World>(
                   fluid: scene.world,
                   builder: (_, world) => WorldWidget(world))),
+
           Positioned.fromRect(
               rect: rect,
               child: FluidBuilder<Snake>(
@@ -54,6 +57,7 @@ class SceneWidget extends StatelessWidget {
               child: FluidBuilder<Snake>(
                   fluid: scene.player2,
                   builder: (_, snake) => SnakeWidget(snake))),
+
           Positioned.fill(
               child: Row(
             children: <Widget>[
