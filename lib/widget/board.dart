@@ -43,8 +43,8 @@ class BoardPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), boardPaint);
     canvas.drawRect(
-        Rect.fromLTWH(0, 0, size.width / 2, size.height), boardLeftPaint);
-    canvas.drawRect(Rect.fromLTWH(size.width / 2, 0, size.width / 2, size.height),
+        Rect.fromLTWH(0, 0, size.width, size.height / 2), boardLeftPaint);
+    canvas.drawRect(Rect.fromLTWH(0, size.height / 2, size.width, size.height / 2),
         boardRightPaint);
 
     final iw = size.width / world.size;

@@ -34,7 +34,7 @@ class SceneWidget extends StatelessWidget {
                   fluid: scene.player2,
                   builder: (_, snake) => SnakeWidget(snake))),
           Positioned.fill(
-              child: Row(
+              child: Column(
             children: <Widget>[
               Expanded(
                   child: Stick(
