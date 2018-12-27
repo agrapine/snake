@@ -1,3 +1,5 @@
 export 'stick.dart';
-export 'snake_widget.dart';
-export 'world_widget.dart';
+export 'snake.dart';
+export 'board.dart';
+export 'background.dart';
+export 'scene.dart';

@@ -6,7 +6,7 @@ class Background extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Container(
-      color: SwipeTheme.background,
+      color: Swete.background,
     );
   }
 }

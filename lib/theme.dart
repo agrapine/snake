@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SwipeTheme {
+class Swete {
   static const Color red = Color(0xFFec4223);
   static const Color blue = Color(0xFF00638d);
   static const Color boardLeftOverlay = Color(0x11ec4223);

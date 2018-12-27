@@ -23,11 +23,11 @@ class Snake extends Fluid {
   }
 
   factory Snake.red(Scene scene) => Snake(
-      color: SwipeTheme.red,
+      color: Swete.red,
       parts: [P(0, 0), P(0, 1), P(0, 2), P(1, 2)],
       scene: scene);
   factory Snake.blue(Scene scene) =>
-      Snake(color: SwipeTheme.blue, parts: [P(3, 0), P(3, 1)], scene: scene);
+      Snake(color: Swete.blue, parts: [P(3, 0), P(3, 1)], scene: scene);
 
   left() => move(P(-1, 0));
   right() => move(P(1, 0));

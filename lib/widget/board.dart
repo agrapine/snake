@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:snake/game/index.dart';
 import 'package:snake/theme.dart';
 
-class WorldWidget extends StatelessWidget {
+class BoardWidget extends StatelessWidget {
   final World world;
-  WorldWidget(this.world);
+  BoardWidget(this.world);
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: WorldPainter(world),
+      painter: BoardPainter(world),
     );
   }
 }
 
-class WorldPainter extends CustomPainter {
+class BoardPainter extends CustomPainter {
   final Paint boardPaint;
   final Paint boardLeftPaint;
   final Paint boardRightPaint;
@@ -21,22 +21,22 @@ class WorldPainter extends CustomPainter {
   final Paint linePaint;
   final World world;
 
-  WorldPainter(this.world)
+  BoardPainter(this.world)
       : boardPaint = Paint()
-          ..color = SwipeTheme.boardBackground
+          ..color = Swete.boardBackground
           ..style = PaintingStyle.fill,
         boardLeftPaint = Paint()
-          ..color = SwipeTheme.boardLeftOverlay
+          ..color = Swete.boardLeftOverlay
           ..style = PaintingStyle.fill,
         boardRightPaint = Paint()
-          ..color = SwipeTheme.boardRightOverlay
+          ..color = Swete.boardRightOverlay
           ..style = PaintingStyle.fill,
         borderPaint = Paint()
-          ..color = SwipeTheme.boardBorder
+          ..color = Swete.boardBorder
           ..style = PaintingStyle.stroke
           ..strokeWidth = 0.5,
         linePaint = Paint()
-          ..color = SwipeTheme.boardLine
+          ..color = Swete.boardLine
           ..style = PaintingStyle.stroke
           ..strokeWidth = 0.5;
 
