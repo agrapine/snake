@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:snake/game/index.dart';
 
 class Scene {
+  
+
   World _world;
   World get world => _world;
 

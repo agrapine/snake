@@ -1,8 +1,12 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped/di.dart';
 import 'package:snake/game/index.dart';
 import 'package:snake/widget/index.dart';
+import 'package:audioplayers/audio_cache.dart';
+
+    
 
 init() {
   SystemChrome.setEnabledSystemUIOverlays([]);
@@ -17,8 +21,11 @@ void main() {
 }
 
 class SnakeApp extends StatelessWidget {
+
   Widget build(BuildContext context) {
-    Store store = Store()..add(Scene());
+    Store store = Store()
+    ..add(Scene())
+    ..add(AudioCache()..loop('music/bensound_instinct.mp3'));
     return Scope(
         store: store,
         child: MaterialApp(

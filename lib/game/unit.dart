@@ -1,3 +1,5 @@
+enum Box { Empty, Brick, Snack }
+
 class P {
   final int x;
   final int y;

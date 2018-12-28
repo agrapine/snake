@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   scoped: ^0.4.0
+  audioplayers: ^0.7.8
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
@@ -19,14 +20,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-flutter_icons:
-  android: true
-  ios: true
-  image_path: "assets/snake_icon.png"
-
-  # assets:
-  #  - images/a_dot_burr.jpeg
+  assets:
+    - assets/music/bensound_instinct.mp3
   #  - images/a_dot_ham.jpeg
 
   # fonts:
@@ -40,3 +35,8 @@ flutter_icons:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/snake_icon.png"

@@ -14,8 +14,8 @@ class BoardWidget extends StatelessWidget {
 
 class BoardPainter extends CustomPainter {
   final Paint boardPaint;
-  final Paint boardLeftPaint;
-  final Paint boardRightPaint;
+
+  final Paint snackPaint;
 
   final Paint borderPaint;
   final Paint linePaint;
@@ -25,11 +25,8 @@ class BoardPainter extends CustomPainter {
       : boardPaint = Paint()
           ..color = Swete.boardBackground
           ..style = PaintingStyle.fill,
-        boardLeftPaint = Paint()
-          ..color = Swete.boardLeftOverlay
-          ..style = PaintingStyle.fill,
-        boardRightPaint = Paint()
-          ..color = Swete.boardRightOverlay
+        snackPaint = Paint()
+          ..color = Swete.snack
           ..style = PaintingStyle.fill,
         borderPaint = Paint()
           ..color = Swete.boardBorder
@@ -42,12 +39,34 @@ class BoardPainter extends CustomPainter {
 
   void paint(Canvas canvas, Size size) {
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), boardPaint);
-    canvas.drawRect(
-        Rect.fromLTWH(0, 0, size.width, size.height / 2), boardLeftPaint);
-    canvas.drawRect(Rect.fromLTWH(0, size.height / 2, size.width, size.height / 2),
-        boardRightPaint);
+    // canvas.drawRect(
+    //     Rect.fromLTWH(0, 0, size.width, size.height / 2), boardLeftPaint);
+    // canvas.drawRect(Rect.fromLTWH(0, size.height / 2, size.width, size.height / 2),
+    //     boardRightPaint);
 
     final iw = size.width / world.size;
+    final snack = Path()
+      ..moveTo(iw / 2, 0)
+      ..lineTo(iw, iw / 2)
+      ..lineTo(iw / 2, iw)
+      ..lineTo(0, iw / 2);
+
+    int ix = 0;
+    world.map.forEach((b) {
+      switch (b) {
+        case Box.Snack:
+          canvas.save();
+          var tx = ix % world.cols;
+          var ty = ix ~/ world.cols;
+          canvas.translate(tx * iw, ty * iw);
+          canvas.drawPath(snack, snackPaint);
+          canvas.restore();
+          break;
+        default:
+      }
+      ix++;
+    });
+
     for (int i = 1; i < world.size; i++) {
       canvas.drawLine(
           Offset(iw * i, 0), Offset(iw * i, size.height), linePaint);
