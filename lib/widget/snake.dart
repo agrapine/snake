@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:snake/game/index.dart';
-import 'package:snake/theme.dart';
 
 class SnakeWidget extends StatelessWidget {
   final Snake snake;

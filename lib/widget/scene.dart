@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:scoped/di.dart';
 import 'package:snake/game/index.dart';
@@ -17,7 +16,7 @@ class SceneWidget extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned.fill(child: Background()),
+          Positioned.fill(child: Background(Scope.of(context).store)),
           Positioned.fromRect(
               rect: rect,
               child: FluidBuilder<World>(
@@ -52,7 +51,7 @@ class SceneWidget extends StatelessWidget {
                 ),
               )
             ],
-          ))
+          )),
         ],
       ),
     );

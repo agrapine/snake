@@ -9,7 +9,7 @@ import 'package:audioplayers/audio_cache.dart';
     
 
 init() {
-  SystemChrome.setEnabledSystemUIOverlays([]);
+  //SystemChrome.setEnabledSystemUIOverlays([]);
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -23,9 +23,12 @@ void main() {
 class SnakeApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
+
+    final player = AudioPlayer();
     Store store = Store()
     ..add(Scene())
-    ..add(AudioCache()..loop('music/bensound_instinct.mp3'));
+    ..add(player)
+    ..add(AudioCache(fixedPlayer:player)..loop('music/bensound_instinct.mp3'));
     return Scope(
         store: store,
         child: MaterialApp(

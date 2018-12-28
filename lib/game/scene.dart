@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:snake/game/index.dart';
 
 class Scene {
